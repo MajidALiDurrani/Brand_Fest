@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "896497644817",
+    "project_id": "brand-fest",
+    "storage_bucket": "brand-fest.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896497644817:android:aa246128af78b75e8dc8b0",
+        "android_client_info": {
+          "package_name": "com.example.brand_fest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp9Pq6QPO_IMMCdsYtzhgZJkTZXoV7TA0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

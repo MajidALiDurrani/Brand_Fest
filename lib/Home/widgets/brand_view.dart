@@ -1,3 +1,6 @@
+// ignore_for_file: non_constant_identifier_names
+
+import 'package:brand_fest/App/router.dart';
 import 'package:brand_fest/Home/screens/rating_screen.dart';
 import 'package:brand_fest/Utels/app_style.dart';
 import 'package:flutter/material.dart';
@@ -5,8 +8,10 @@ import 'package:flutter/material.dart';
 class Brands extends StatelessWidget {
   final String subjects;
   final String lessons;
+  final String Image;
   const Brands({
     required this.subjects,
+    required this.Image,
     required this.lessons,
     super.key,
   });
@@ -14,45 +19,55 @@ class Brands extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashColor: Colors.black87,
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => const RatingScreen()));
+        Navigator.pushNamed(context, Approuter.rating);
       },
-      child: Container(
-        width: MediaQuery.of(context).size.width * 0.29,
-        height: MediaQuery.of(context).size.height * 0.22,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-              color: const Color.fromARGB(255, 109, 108, 108), width: 1),
-        ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: CircleAvatar(
-                radius: 35,
-                backgroundColor: Colors.amber,
+      child: Ink(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.29,
+          height: MediaQuery.of(context).size.height * 0.17,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(12),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.grey,
+                offset: Offset(0.0, 2.0),
+                blurRadius: 2,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Text(
-                    subjects,
-                    style: appstyle(9, Colors.black, FontWeight.w700),
+            ],
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Padding(
+                padding: EdgeInsets.only(top: 10),
+                child: CircleAvatar(
+                  backgroundImage: AssetImage(
+                    "assets/majjjjj.JPG",
                   ),
-                  Text(
-                    lessons,
-                    style: appstyle(7, Colors.grey, FontWeight.normal),
-                  ),
-                ],
+                  radius: 35,
+                  backgroundColor: Colors.amber,
+                ),
               ),
-            )
-          ],
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    Text(
+                      subjects,
+                      style: appstyle(9, Colors.black, FontWeight.w700),
+                    ),
+                    Text(
+                      lessons,
+                      style: appstyle(7, Colors.grey, FontWeight.normal),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

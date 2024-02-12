@@ -12,13 +12,10 @@ class CliprRact extends StatelessWidget {
       borderRadius: BorderRadius.circular(20),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height * 0.23,
+        height: MediaQuery.of(context).size.height * 0.22,
         decoration: const BoxDecoration(boxShadow: [
           BoxShadow(
             color: Color.fromARGB(255, 39, 90, 131),
-            spreadRadius: 1,
-            blurRadius: 0.6,
-            offset: Offset(1, 1),
           )
         ]),
         child: Padding(
@@ -29,15 +26,15 @@ class CliprRact extends StatelessWidget {
             children: [
               Text(
                 "20/30 lesson",
-                style: appstyle(10, Colors.teal, FontWeight.normal),
+                style: appstyle(10, Colors.white, FontWeight.normal),
               ),
               Text(
                 "Online Virtual cources",
-                style: appstyle(15, Colors.black, FontWeight.w700),
+                style: appstyle(15, Colors.white, FontWeight.w700),
               ),
               Text(
                 "125 sudent",
-                style: appstyle(10, Colors.grey, FontWeight.normal),
+                style: appstyle(10, Colors.white, FontWeight.normal),
               ),
             ],
           ),

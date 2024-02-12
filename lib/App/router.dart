@@ -1,8 +1,5 @@
-import 'dart:js';
-
 import 'package:brand_fest/Home/screens/home.dart';
 import 'package:brand_fest/Home/screens/rating_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Approuter {
@@ -12,9 +9,13 @@ class Approuter {
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case home:
-        return MaterialPageRoute(builder: (context) => const HomeScreen());
+        return MaterialPageRoute(
+          builder: ((context) => const HomeScreen()),
+          settings: settings,
+        );
       case rating:
-        return MaterialPageRoute(builder: (context) => const RatingScreen());
+        return MaterialPageRoute(
+            builder: ((context) => const RatingScreen()), settings: settings);
     }
     return null;
   }

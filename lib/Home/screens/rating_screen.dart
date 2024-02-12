@@ -1,9 +1,7 @@
 import 'package:brand_fest/Utels/app_style.dart';
 import 'package:brand_fest/Home/widgets/rating_cart.dart';
 import 'package:brand_fest/Utels/media_query.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class RatingScreen extends StatelessWidget {
   const RatingScreen({super.key});
@@ -40,7 +38,7 @@ class RatingScreen extends StatelessWidget {
                             topRight: Radius.circular(20)),
                         border: Border.all(
                             color: const Color.fromARGB(255, 11, 101, 173),
-                            width: 2),
+                            width: 1),
                         boxShadow: const [
                           BoxShadow(
                             color: Color.fromARGB(255, 11, 101, 173),
@@ -75,7 +73,7 @@ class RatingScreen extends StatelessWidget {
                             topRight: Radius.circular(20)),
                         border: Border.all(
                             color: const Color.fromARGB(255, 11, 101, 173),
-                            width: 2),
+                            width: 1),
                         boxShadow: const [
                           BoxShadow(
                             color: Color.fromARGB(255, 11, 101, 173),

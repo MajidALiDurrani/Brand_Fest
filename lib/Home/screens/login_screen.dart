@@ -1,8 +1,11 @@
-import 'dart:math';
-
+import 'package:brand_fest/App/router.dart';
 import 'package:brand_fest/Home/screens/home.dart';
 import 'package:brand_fest/Utels/media_query.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -12,9 +15,24 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final _obsecuretext = true;
-  TextEditingController idcontrolar = TextEditingController();
-  TextEditingController passwordcontrolar = TextEditingController();
+  var _obsecuretext = true;
+  late TextEditingController idcontrolar;
+  late TextEditingController passwordcontrolar;
+
+  @override
+  void initState() {
+    idcontrolar = TextEditingController();
+    passwordcontrolar = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    idcontrolar.dispose();
+    passwordcontrolar.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,8 +73,8 @@ class _LoginState extends State<Login> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                          width: 2,
-                          color: Color.fromARGB(255, 11, 101, 173),
+                          width: 1,
+                          color: Colors.grey,
                         ),
                       ),
                       border: UnderlineInputBorder(
@@ -66,7 +84,7 @@ class _LoginState extends State<Login> {
                 TextFormField(
                   controller: passwordcontrolar,
                   obscureText: _obsecuretext,
-                  obscuringCharacter: '.',
+                  obscuringCharacter: '*',
                   decoration: InputDecoration(
                       hintText: "Password",
                       labelText: "Password",
@@ -77,7 +95,11 @@ class _LoginState extends State<Login> {
                       ),
                       suffixIcon: IconButton(
                           color: const Color.fromARGB(255, 11, 101, 173),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              _obsecuretext = !_obsecuretext;
+                            });
+                          },
                           icon: _obsecuretext
                               ? const Icon(Icons.visibility_off)
                               : const Icon(Icons.visibility)),
@@ -89,32 +111,38 @@ class _LoginState extends State<Login> {
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(
-                          width: 2,
-                          color: Color.fromARGB(255, 11, 101, 173),
+                          width: 1,
+                          color: Colors.grey,
                         ),
                       ),
                       border: UnderlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       )),
                 ),
-                MaterialButton(
-                  color: const Color.fromARGB(255, 11, 101, 173),
-                  minWidth: screenWidth(context),
+                SizedBox(
+                  width: screenHeight(context),
                   height: screenHeight(context) * 0.06,
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const HomeScreen()));
-                  },
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    side: const BorderSide(
-                        color: Color.fromARGB(255, 138, 136, 136)),
+                  child: InkWell(
+                    splashColor: const Color.fromARGB(255, 72, 134, 185),
+                    onTap: () {
+                      Navigator.pushNamed(context, Approuter.home);
+                    },
+                    child: Ink(
+                      decoration: const BoxDecoration(
+                          color: Color.fromARGB(255, 11, 101, 173),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      child: const Center(
+                        child: Text(
+                          'Login',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 18,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
                   ),
-                  child: const Text(
-                    'Login',
-                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20),
-                  ),
-                ),
+                )
               ],
             ),
           ),
