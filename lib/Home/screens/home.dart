@@ -18,10 +18,9 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           backgroundColor: Colors.white,
           leading: const Icon(Icons.menu_rounded),
-          title: Text("HOME Screen"),
-          // const Image(
-          //   image: AssetImage("assets/3.png"),
-          // ),
+          title: const Image(
+            image: AssetImage("assets/3.png"),
+          ),
         ),
         body: Container(
           color: const Color.fromARGB(255, 241, 239, 239),
@@ -29,12 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Padding(
-                padding: EdgeInsets.only(left: 20, right: 20, top: 10),
+                padding: EdgeInsets.only(left: 15, right: 15, top: 10),
                 child: CliprRact(),
               ),
               Padding(
                 padding: const EdgeInsets.only(
-                    top: 10, bottom: 10, left: 20, right: 20),
+                    top: 10, bottom: 10, left: 15, right: 15),
                 child: TextFormField(
                   controller: searchcontrolar,
                   decoration: InputDecoration(
@@ -63,8 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(
-                    left: 20,
-                    right: 20,
+                    left: 15,
+                    right: 15,
                   ),
                   child: GridView(
                     scrollDirection: Axis.vertical,

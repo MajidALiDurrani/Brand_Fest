@@ -1,5 +1,3 @@
-// ignore_for_file: non_constant_identifier_names
-
 import 'package:brand_fest/App/router.dart';
 import 'package:brand_fest/Home/screens/rating_screen.dart';
 import 'package:brand_fest/Utels/app_style.dart';
@@ -8,11 +6,10 @@ import 'package:flutter/material.dart';
 class Brands extends StatelessWidget {
   final String subjects;
   final String lessons;
-  final String Image;
   const Brands({
     required this.subjects,
-    required this.Image,
     required this.lessons,
+
     super.key,
   });
 
@@ -44,9 +41,7 @@ class Brands extends StatelessWidget {
               const Padding(
                 padding: EdgeInsets.only(top: 10),
                 child: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    "assets/majjjjj.JPG",
-                  ),
+                  backgroundImage: AssetImage("assets/majjjjj.JPG",),
                   radius: 35,
                   backgroundColor: Colors.amber,
                 ),

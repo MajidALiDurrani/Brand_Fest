@@ -1,6 +1,7 @@
 import 'package:brand_fest/App/router.dart';
 import 'package:brand_fest/Home/screens/home.dart';
 import 'package:brand_fest/Home/screens/login_screen.dart';
+import 'package:brand_fest/Utels/Rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -32,6 +33,6 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
           useMaterial3: true,
         ),
-        home: HomeScreen());
+        home: Login());
   }
 }
